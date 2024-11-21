@@ -12,12 +12,23 @@
     .animateScale {
         @apply animateScaleCSS
     }
+    .animatePisca {
+        @apply animatePiscaCSS
+    }
 }
 .animateScaleCSS {
     animation: scale .7s forwards;
+}
+.animatePiscaCSS {
+    animation: pisca 1s infinite;
 }
 @keyframes scale {
     0% { transform: scale(1); }
     50% { transform: scale(1.1); }
     100% { transform: scale(1); }
+}
+@keyframes pisca {
+    0% { opacity: 1; transform: scale(2); }
+    50% { opacity: .7; transform: scale(1.1); }
+    100% { opacity: 1; transform: scale(1); }
 }

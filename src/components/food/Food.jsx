@@ -55,6 +55,9 @@ const Food = () => {
   React.useEffect(() => {
     setItems(data);
   }, []);
+  React.useEffect(() => {
+    console.log(openModalFood);
+  }, [openModalFood]);
 
   return (
     <section className="w-full">
