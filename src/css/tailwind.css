@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    .btnFilter {
+        @apply bg-white text-orange-600 border-2 border-orange-600 rounded-lg hover:bg-orange-600 hover:text-white duration-150 py-2 px-6 w-[120px] font-semibold
+    }
+    .btnFilterActive {
+        @apply bg-orange-600 text-white border-2 border-orange-600 rounded-lg duration-150 py-2 px-6 w-[120px] font-semibold
+    }
+    .animateScale {
+        @apply animateScaleCSS
+    }
+}
+.animateScaleCSS {
+    animation: scale .7s forwards;
+}
+@keyframes scale {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
