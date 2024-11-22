@@ -1,10 +1,26 @@
 import React from 'react';
 import { FaFacebook, FaInstagram, FaPinterest, FaWhatsapp, FaYoutube } from "react-icons/fa";
+import { FaArrowUpLong } from "react-icons/fa6";
 import Logo from "../../assets/logo.svg";
 
 const Footer = () => {
+  const handleArrow = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    })
+  }
+
   return (
-    <footer className="w-full bg-orange-600">
+    <footer className="w-full bg-orange-600 relative">
+      <div className="w-full"> {/* para posicionar a arrow no footer, aplicar as configs diretamente no componente */}
+        <FaArrowUpLong 
+          size={55} 
+          className="p-2 border-2 border-orange-600 bg-white shadow-xl absolute top-[-20px] right-16 rounded-full
+          shadow-orange-800 cursor-pointer animate-kick text-orange-600 hover:bg-slate-200"
+          onClick={handleArrow}
+        />
+      </div>
       <div className="w-full max-w-[1200px] mx-auto p-5">
         <div className="w-full grid md:grid-cols-2 lg:grid-cols-3">
           <div className="p-10 sm:p-0 md:py-8 lg:py-0">

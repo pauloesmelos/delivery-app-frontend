@@ -1,4 +1,6 @@
 import React from 'react';
+import { Bounce, toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { data } from '../../data/data';
 import DisplayFood from './display-food/DisplayFood';
 import Container from './modal/Container';
@@ -12,6 +14,18 @@ const Food = () => {
     price: ""
   });
 
+  const toastify = () => {
+    toast.success("Item added to cart", {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      theme: "light",
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      transition: Bounce
+    })
+  }
   const filterType = ({ target }) => {
     const category = target.innerText.toLowerCase();
     setButtonActive({
@@ -55,12 +69,10 @@ const Food = () => {
   React.useEffect(() => {
     setItems(data);
   }, []);
-  React.useEffect(() => {
-    console.log(openModalFood);
-  }, [openModalFood]);
 
   return (
     <section className="w-full">
+      <ToastContainer />
       <div className="w-full max-w-[1200px] mx-auto px-5">
         <div className="w-full">
           <div className="w-full md:text-center">
@@ -139,6 +151,7 @@ const Food = () => {
           state={openModalFood} 
           onClick={setOpenModalFood} 
           json={jsonFood}
+          toastify={toastify}
         />
       }
     </section>

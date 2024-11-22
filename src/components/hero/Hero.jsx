@@ -35,15 +35,15 @@ const Hero = () => {
                 /> {/* max-h-[]  é responsivo para imagens */} {/* hero com img, ajustar o tamanho apenas da img */}
             </div>
             {/* cards */}
-            <div className="w-full max-w-[80%] absolute bottom-5 left-6 lg:left-24 p-2 lg:p-4 bg-white rounded-md hidden lg:block">
-              <div className="mb-0 lg:mb-10">
-                <h3 className="text-slate-800 text-center text-xl">        
+            <div className="w-full max-w-[80%] absolute bottom-16 left-6 lg:left-24 p-2 lg:p-2 bg-white rounded-md hidden lg:block">
+              <div className="mb-0 lg:mb-5">
+                <h3 className="text-slate-800 text-center text-lg">        
                   Our app is
                   <span className="font-bold mx-2">globally+</span>
                   recognized for its excellence.
                 </h3>
               </div>
-              <div className="hidden lg:flex w-full mx-auto items-center justify-between gap-10">
+              <div className="hidden lg:flex w-full mx-auto items-center justify-between gap- ">
                 {infos.map((info) => (
                   <CardHero key={info.id * Math.random()} {...info} />
                 ))}

@@ -1,7 +1,10 @@
 import React from 'react';
 import { FaCartArrowDown, FaSearch } from "react-icons/fa";
 import { IoMenuSharp } from "react-icons/io5";
+import { data } from "../../data/data";
+import { GlobalCart } from '../../global/cart/GlobalCart';
 import MobileMenu from '../mobile/mobile-menu/MobileMenu';
+import SearchResults from './search-results/SearchResults';
 
 const Navbar = () => {
   const style = {
@@ -21,12 +24,28 @@ const Navbar = () => {
         active: "w-full h-screen fixed top-0 left-0 bg-black/80 z-[50]"
     }
   }
+  const { countProducts } = React.useContext(GlobalCart);
   const [option, setOption] = React.useState({
     delivery: true,
   });
   const [focusSearch, setFocusSearch] = React.useState(false);
   const [menu, setMenu] = React.useState(false);
+  const [inputSearch, setInputSearch] = React.useState("");
+  const [searchResults, setSearchResults] = React.useState([]);
 
+  const handleInputSearch = ({ target }) => { // sem debounce
+    let results = [];
+    const { value } = target;
+    setInputSearch(value);
+    if(inputSearch.length > 0 && value !== "") {
+        data.map((food) => {
+            if(food.name.includes(value)) {
+                results.push(food);
+            }
+        });
+    }
+    setSearchResults(results);
+  }
   const handleOption = ({ target }) => {
     const type = target.innerText.toLowerCase();
     if(!option[type]) {
@@ -86,34 +105,44 @@ const Navbar = () => {
                     </button>
                     <button 
                         onClick={handleOption} 
-                        className={option.retire ? style.option.active : style.option.notActive}
+                        className={option.pickup ? style.option.active : style.option.notActive}
                     >
-                        Retire
+                        Pickup
                     </button>
                 </div>
             </div>
             {/* search input */}
-            <div 
-                aria-label="search" 
-                className={focusSearch ? style.inputSearch.active : style.inputSearch.notActive}
-            >
-                <FaSearch 
+            <div className="relative">
+                <div 
                     aria-label="search" 
-                    size={20}
-                    className="text-orange-600"
-                />
-                <input 
-                    type="text" 
-                    className={focusSearch ? style.input.active : style.input.notActive}
-                    placeholder="Search"
-                    aria-label="search"
-                />
+                    className={focusSearch ? style.inputSearch.active : style.inputSearch.notActive}
+                >
+                    <FaSearch 
+                        aria-label="search" 
+                        size={20}
+                        className="text-orange-600"
+                    />
+                    <input 
+                        type="text" 
+                        className={focusSearch ? style.input.active : style.input.notActive}
+                        placeholder="Search"
+                        aria-label="search"
+                        value={inputSearch}
+                        onChange={handleInputSearch}
+                    />
+                </div>
+                {
+                    searchResults.length > 0 && <SearchResults items={searchResults} />
+                }
             </div>
             {/* button */}
             <button className="hidden lg:flex items-center gap-2 bg-orange-600 text-white rounded-md font-medium py-2 px-4
-            hover:bg-white hover:text-orange-600 duration-150 border border-orange-600">
+            hover:bg-white hover:text-orange-600 duration-150 border border-orange-600 relative">
                 <FaCartArrowDown size={23} />
                 Cart
+                <span className="absolute top-[-10px] right-[-5px] p-1 w-[24px] h-[25px] text-sm bg-rose-600 text-white rounded-full">
+                    {countProducts}
+                </span>
             </button>
         </div>
         {/* mobile nav */}

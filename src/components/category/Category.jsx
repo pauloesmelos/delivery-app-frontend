@@ -8,7 +8,7 @@ const Category = () => {
   }, []); // simuling request API GET
 
   return (
-    <section className="w-full py-24">
+    <section className="w-full py-24 mb-10">
       <div className="w-full max-w-[1200px] mx-auto px-5">
         <div className="w-full">
             <div className="w-full text-center">

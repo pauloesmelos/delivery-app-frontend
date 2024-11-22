@@ -265,17 +265,17 @@ export const data = [
     {
       id: 0,
       icon: <FaSeedling />,
-      description: "Sustainable and Secure Delivery at Your Doorstep, is a revolutionary app that prioritizes sustainability and safety"
+      description: "Sustainable and Secure Delivery at Your Doorstep"
     },
     {
       id: 1,
       icon: <FaShieldAlt />,
-      description: "Safety is at the heart of DeliveryBR, offering contactless delivery options and rigorous background checks for all delivery personnel"
+      description: "Safety is at the heart of DeliveryBR, offering contactless delivery options and rigorous background"
     },
     {
       id: 2,
       icon: <FaShoppingBag />,
-      description: "Our eco-friendly packaging is custom-designed to minimize waste and be fully recyclable or reusable"
+      description: "Our eco-friendly packaging is custom-designed to minimize waste"
     },
   ]
   export const headlineItems = [

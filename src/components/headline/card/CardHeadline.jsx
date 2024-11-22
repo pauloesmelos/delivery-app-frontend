@@ -12,7 +12,7 @@ const CardHeadline = ({ restaurant, inclusionDate, img }) => {
             {inclusionDate}
         </span>
         <button className="px-6 py-2 bg-white rounded-lg text-neutral-800 font-medium border-2 border-neutral-800
-        hover:bg-orange-600 hover:text-white duration-150">
+        group-hover:bg-orange-600 group-hover:text-white duration-150">
             Order Now
         </button>
       </div>
