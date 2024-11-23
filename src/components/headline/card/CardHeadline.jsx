@@ -2,7 +2,7 @@ import React from 'react';
 
 const CardHeadline = ({ restaurant, inclusionDate, img }) => {
   return ( 
-    <div className="relative group">
+    <div className="relative group hover:scale-[1.03] duration-150 cursor-pointer">
         {/* overlay and descriptions */}
       <div className="absolute top-0 left-0 w-full h-[180px] bg-black/80 p-6 rounded-lg flex flex-col gap-5">
         <p className="text-xl font-bold text-white tracking-wide">
@@ -11,7 +11,7 @@ const CardHeadline = ({ restaurant, inclusionDate, img }) => {
         <span className="text-sm text-neutral-400">
             {inclusionDate}
         </span>
-        <button className="px-6 py-2 bg-white rounded-lg text-neutral-800 font-medium border-2 border-neutral-800
+        <button className="px-6 py-2 bg-white rounded-lg text-neutral-800 font-medium border-2 border-transparent
         group-hover:bg-orange-600 group-hover:text-white duration-150">
             Order Now
         </button>

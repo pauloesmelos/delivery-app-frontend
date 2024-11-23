@@ -7,7 +7,7 @@ import { MdDateRange } from "react-icons/md";
 import { GlobalCart } from '../../../../global/cart/GlobalCart';
 
 const ViewModal = ({ onClick, json, toastify }) => {
-  const { countProducts, handleCountProducts } = React.useContext(GlobalCart);
+  const { addProductCart, handleCountProducts } = React.useContext(GlobalCart);
   const { image, name, category, date, restaurant, amount, delivery, online } = json;
   const [unit, setUnit] = React.useState(0);
   const [erro, setErro] = React.useState("");
@@ -15,6 +15,7 @@ const ViewModal = ({ onClick, json, toastify }) => {
   const handleAddProduct = (operation) => {
     if(unit > 0) {
       handleCountProducts(operation);
+      addProductCart(json);
       onClick(null);
       toastify();
       setErro("");

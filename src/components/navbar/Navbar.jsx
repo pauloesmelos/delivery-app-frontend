@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaCartArrowDown, FaSearch } from "react-icons/fa";
 import { IoMenuSharp } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
 import { data } from "../../data/data";
 import { GlobalCart } from '../../global/cart/GlobalCart';
 import MobileMenu from '../mobile/mobile-menu/MobileMenu';
@@ -9,8 +10,8 @@ import SearchResults from './search-results/SearchResults';
 const Navbar = () => {
   const style = {
     option: {
-        active: "p-2 w-[100px] text-white bg-orange-600 rounded-full duration-200",
-        notActive: "p-2 w-[100px] text-black bg-neutral-300 rounded-full duration-200"
+        active: "p-1 w-[100px] text-white bg-orange-600 rounded-full duration-200",
+        notActive: "p-1 w-[100px] text-black bg-neutral-300 rounded-full duration-200"
     },
     inputSearch: {
         active: "flex items-center gap-5 rounded-full w-[200px] lg:w-[500px] px-4 bg-neutral-100 border-2 border-sky-400 p-1",
@@ -32,6 +33,7 @@ const Navbar = () => {
   const [menu, setMenu] = React.useState(false);
   const [inputSearch, setInputSearch] = React.useState("");
   const [searchResults, setSearchResults] = React.useState([]);
+  const navigate = useNavigate();
 
   const handleInputSearch = ({ target }) => { // sem debounce
     let results = [];
@@ -65,6 +67,10 @@ const Navbar = () => {
   const handleMenu = () => {
     setMenu(e => !e);
   }
+  const configCart = () => {
+    navigate(`/cart/1`); // valor mockado só pra testar o useParams() no carrinho
+  }
+
   React.useEffect(() => {
     window.addEventListener("click", handleFocusSearch);
     return () => {
@@ -82,8 +88,8 @@ const Navbar = () => {
             {/* left items */}
             <div className="text-neutral-800 flex items-center gap-4">
                 <IoMenuSharp 
-                    size={35} 
-                    className="cursor-pointer hover:text-orange-500 duration-150"
+                    size={30} 
+                    className="cursor-pointer hover:text-orange-500 duration-150 mt-1"
                     onClick={handleMenu}
                 />
                 <a 
@@ -136,11 +142,14 @@ const Navbar = () => {
                 }
             </div>
             {/* button */}
-            <button className="hidden lg:flex items-center gap-2 bg-orange-600 text-white rounded-md font-medium py-2 px-4
-            hover:bg-white hover:text-orange-600 duration-150 border border-orange-600 relative">
+            <button 
+                onClick={configCart}
+                className="hidden sm:flex items-center gap-2 bg-orange-600 text-white rounded-md font-medium py-2 px-4
+                hover:bg-white hover:text-orange-600 duration-150 border border-orange-600 relative"
+            >
                 <FaCartArrowDown size={23} />
                 Cart
-                <span className="absolute top-[-10px] right-[-5px] p-1 w-[24px] h-[25px] text-sm bg-rose-600 text-white rounded-full">
+                <span className="absolute top-[-10px] right-[-5px] p-[2px] w-[25px] h-[25px] text-sm bg-rose-600 text-white rounded-full">
                     {countProducts}
                 </span>
             </button>
