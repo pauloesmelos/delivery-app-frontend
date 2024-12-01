@@ -6,7 +6,7 @@ const CardFood = ({ name, category, image, price, restaurant, amount, date, deli
   return (
     <div
       onClick={() => handleOpenModal(food)}
-      className="bg-white shadow-md rounded-md cursor-pointer hover:shadow-lg duration-150 hover:animateScale
+      className="bg-white shadow-md rounded-md cursor-pointer hover:shadow-lg duration-150 hover:scale-105 md:hover:animateScale
       hover:shadow-neutral-300"
     >
       <div className="h-[300px]">

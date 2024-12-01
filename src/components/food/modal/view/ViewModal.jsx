@@ -83,14 +83,14 @@ const ViewModal = ({ onClick, json, toastify }) => {
               <div className="w-full flex justify-between items-center">
                 <p className="mt-5">
                   { delivery  ? (
-                    <span className="p-1 bg-emerald-600/10 border text-emerald-600 flex items-center gap-2 text-sm rounded-lg px-5 border-emerald-600">
+                    <span className="p-1 bg-emerald-600/10 border-2 text-emerald-600 flex items-center gap-2 text-[.8rem] rounded-lg px-3 border-emerald-600">
                       Delivering in your region
-                      <FaRegFaceSmileWink size={20} className="text-emerald-600" />
+                      <FaRegFaceSmileWink size={15} className="text-emerald-600" />
                     </span>
                   ) : (
-                    <span className="p-1 bg-rose-600/10 border text-rose-600 flex items-center gap-2 text-sm rounded-lg px-5 border-rose-600">
+                    <span className="p-1 bg-rose-600/10 border-2 text-rose-600 flex items-center gap-2 text-[.8rem] rounded-lg px-3 border-rose-600">
                       Not Delivering in your region
-                      <BsEmojiDizzy size={20} className="text-rose-600" />
+                      <BsEmojiDizzy size={15} className="text-rose-600" />
                     </span>
                   )}  
                 </p>

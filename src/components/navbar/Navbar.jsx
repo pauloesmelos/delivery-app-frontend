@@ -57,7 +57,7 @@ const Navbar = () => {
     }
   }
   const handleFocusSearch = ({ target }) => {
-    if(target.ariaLabel) {
+    if(target.ariaLabel === "input-search") {
         setFocusSearch(true);
     }
     else {
@@ -132,7 +132,7 @@ const Navbar = () => {
                         type="text" 
                         className={focusSearch ? style.input.active : style.input.notActive}
                         placeholder="Search"
-                        aria-label="search"
+                        aria-label="input-search"
                         value={inputSearch}
                         onChange={handleInputSearch}
                     />
